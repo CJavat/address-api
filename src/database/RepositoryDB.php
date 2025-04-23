@@ -99,7 +99,7 @@ class RepositoryDB extends BaseRepository implements RepositoryInterface
     return $data;
   }
 
-  public function findByEmail(string $email): array
+  public function findByEmail(string $email): array|false
   {
     $query = "SELECT * FROM " . $this->table . " WHERE email = :email";
     $stmt = $this->pdo->prepare($query);
@@ -113,11 +113,15 @@ class RepositoryDB extends BaseRepository implements RepositoryInterface
   {
     $user = $this->findByEmail($email);
 
-    if (password_verify($password, $user["pass"])) {
-      return true;
-    } else {
+    if (!$user) {
       return false;
     }
+
+    if (!password_verify($password, $user["pass"])) {
+      return false;
+    }
+
+    return true;
   }
 }
 ?>
