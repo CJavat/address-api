@@ -1,0 +1,29 @@
+{
+  "name": "c-javat-x/address-api",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "CJavatX\\AddressApi\\": "src/",
+      "app\\business\\address\\": "src/business/address/",
+      "app\\business\\user\\": "src/business/user/",
+      "app\\database\\": "src/database/",
+      "app\\exceptions\\": "src/exceptions/",
+      "app\\interfaces\\": "src/interfaces/",
+      "app\\validators\\": "src/validators/"
+    },
+    "files": [
+      "src/config/database.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "CJavatX",
+      "email": "cdpm98@hotmail.com"
+    }
+  ],
+  "require": {
+    "ramsey/uuid": "^4.7",
+    "bramus/router": "^1.6",
+    "vlucas/phpdotenv": "^5.6"
+  }
+}
